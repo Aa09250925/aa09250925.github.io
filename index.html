@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
@@ -165,6 +166,53 @@
             background-color: #218838;
         }
 
+        .party-card {
+            width: 90%;
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 0;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            display: block;
+            background-color: white;
+        }
+
+        .party-card .img-container {
+            width: 100%;
+            height: 400px;
+        }
+
+        .party-card .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .party-card .party-content {
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .party-card .party-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .party-card .party-content p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .party-card .signup-button {
+            font-size: 1.1rem;
+            padding: 12px 24px;
+            background-color: #007bff;
+            border-radius: 8px;
+        }
+
+
 
         @media (max-width: 768px) {
             header h1 {
@@ -197,6 +245,21 @@
     </header>
 
     <main>
+
+        <section>
+            <h2 class="title">特別活動</h2>
+            <button class="card party-card" id="party" onclick="window.location.href='https://example.com/party'">
+                <div class="img-container">
+                    <img src="畢業晚會.jpg" alt="畢業晚會圖片">
+                </div>
+                <div class="party-content">
+                    <h2>畢業晚會</h2>
+                    <p>日期：5/23</p>
+                    <a href="" class="signup-button" target="_blank">報名連結</a>
+                </div>
+            </button>            
+        </section>
+
         <section>
         <h2 class="title">活動資訊</h2>    
         <button class="card" id="basketball" onclick="window.location.href='https://aa09250925.github.io/Basketball.html'">
@@ -216,17 +279,6 @@
             </div>
             <h2>脖子上喜歡掛玉排</h2>
             <p>日期：4/30 ~ 5/2</p>
-            <div>
-                <a href="" class="signup-button" target="_blank">報名連結</a>
-            </div>
-        </button>
-        
-        <button class="card" id="party" onclick="window.location.href='https://example.com/party'">
-            <div class="img-container">
-                <img src="P2.png" alt="畢業晚會圖片">
-            </div>
-            <h2>畢業晚會</h2>
-            <p>日期：5/23</p>
             <div>
                 <a href="" class="signup-button" target="_blank">報名連結</a>
             </div>
