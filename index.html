@@ -212,17 +212,110 @@
             border-radius: 8px;
         }
 
-
-
         @media (max-width: 768px) {
-            header h1 {
-                font-size: 3rem;
-            }
-
-            .card {
-                width: 250px;
-            }
+        /* 縮小標題文字 */
+        header h1 {
+            font-size: 2rem;
         }
+
+        header p {
+            font-size: 1rem;
+        }
+
+        /* 卡片樣式調整 */
+        .card {
+            width: 100%;
+            margin: 10px auto;
+        }
+
+        .card h2 {
+            font-size: 1.5rem;
+        }
+
+        .card p {
+            font-size: 1rem;
+        }
+
+        .card button {
+            font-size: 1rem;
+        }
+
+        /* 菜單按鈕調整 */
+        .menu-icon {
+            font-size: 25px;
+            padding: 5px 10px;
+        }
+
+        .dropdown {
+            width: 100%;
+            right: 0;
+            left: 0;
+            text-align: center;
+        }
+
+        .dropdown a {
+            font-size: 1rem;
+            padding: 10px;
+        }
+
+        /* 活動圖片調整 */
+        .card .img-container,
+        .party-card .img-container {
+            height: 200px;
+        }
+
+        .party-card .party-content h2 {
+            font-size: 2rem;
+        }
+
+        .party-card .party-content p {
+            font-size: 1rem;
+        }
+
+        .signup-button {
+            font-size: 1rem;
+            padding: 8px 16px;
+        }
+
+        footer {
+            font-size: 0.9rem;
+            text-align: center;
+        }
+    }
+
+    @media (max-width: 480px) {
+        /* 再次縮小文字 */
+        header h1 {
+            font-size: 1.8rem;
+        }
+
+        .menu-icon {
+            font-size: 22px;
+        }
+
+        .signup-button {
+            font-size: 0.9rem;
+            padding: 6px 12px;
+        }
+
+        .card h2 {
+            font-size: 1.2rem;
+        }
+
+        .card p {
+            font-size: 0.9rem;
+        }
+
+        /* 確保卡片圖片不會變形 */
+        .card .img-container img,
+        .party-card .img-container img {
+            object-fit: contain;
+        }
+
+        footer {
+            font-size: 0.8rem;
+        }
+    }
     </style>
 </head>
 <body>
