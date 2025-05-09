@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>畢業晚會</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+      font-family: "Noto Sans TC", sans-serif;
+      background: linear-gradient(to top, #ffecd2, #fcb69f);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .notebook-container {
+      width: 95%;
+      max-width: 800px;
+      height: 90%;
+      position: relative;
+      perspective: 1500px;
+    }
+
+    .binder {
+      position: absolute;
+      top: 10px;
+      left: -25px;
+      width: 30px;
+      height: calc(100% - 20px);
+      background: repeating-linear-gradient(
+        to bottom,
+        #aaa,
+        #aaa 8px,
+        transparent 8px,
+        transparent 16px
+      );
+      border-radius: 10px;
+      z-index: 10;
+    }
+
+    .book {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+    }
+
+    .page {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: repeating-linear-gradient(to bottom, #fff, #fff 24px, #fefae0 25px);
+      padding: 20px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #333;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      border-left: 2px solid #ddd;
+      transform-origin: left;
+      backface-visibility: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.8s ease-in-out, box-shadow 0.8s ease-in-out;
+      overflow-y: auto;
+    }
+
+    .page.flipped {
+      transform: rotateY(-180deg);
+    }
+
+    .floating-menu {
+      position: fixed;
+      top: 50%;
+      right: 15px;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      z-index: 100;
+    }
+
+    .menu-item {
+      width: 40px;
+      height: 40px;
+      background-color: #ff9800;
+      color: #fff;
+      font-size: 0.9rem;
+      font-weight: bold;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s, box-shadow 0.2s, background-color 0.3s;
+    }
+
+    .menu-item:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .menu-item.active {
+      background-color: #4fc3f7;
+      box-shadow: 0 0 12px #4fc3f7;
+    }
+
+    .content {
+      width: 100%;
+      max-width: 700px;
+      display: flex; 
+      flex-direction: column;
+      align-items: center; 
+      justify-content: center; 
+      margin-top: 0;
+    }
+
+    .content img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 15px;
+      border-radius: 12px;
+    }
+
+    .content h1 {
+      margin: 0 0 10px;
+      font-size: 2rem;
+      text-align: center; 
+    }
+
+    .content p {
+      margin: 5px 0;
+      text-align: left;
+    }
+
+    .artist-section {
+      display: flex;
+      justify-content: center; /* 主要讓整組內容置中 */
+      align-items: center;
+      text-align: left; /* 內部的文字靠左對齊 */
+      gap: 20px;
+      flex-wrap: wrap;
+      margin: 0 auto;
+    }
+
+    .artist-section img {
+      width: 100%;
+      max-width: 350px;
+      border-radius: 12px;
+    }   
+
+    .artist-section .description {
+    max-width: 500px;
+    flex: 1; /* 讓文字區塊可以彈性調整寬度 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* 垂直置中文字內容 */
+    }
+
+    .artist-section.reversed {
+    flex-direction: row-reverse; /* 反向排列，達到右文左圖效果 */
+    }
+    
+
+    @media (max-width: 768px) {
+      body {
+        align-items: flex-start;
+      }
+
+      .page {
+        font-size: 1rem;
+        padding: 15px;
+      }
+
+      .artist-section {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .artist-section.reversed {
+        flex-direction: column-reverse; /* 在小螢幕上反向排列為上下交替 */
+      }
+
+      .artist-section img {
+        width: 80%;
+      }
+
+      .notebook-container {
+        height: 95%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="notebook-container">
+    <div class="binder"></div>
+    <div class="book">
+      <div class="page">
+        <div class="content">
+          <img src="畢業晚會.jpg" alt="畢業晚會">
+          <h1>台南二中畢業晚會《星夜終夢Nocturne》</h1>
+          <p>在日落之後，我們走進星夜，
+            像墜入一場無聲的夢境。
+            流星滑過、記憶閃爍，
+            那些笑聲與眼淚，都悄悄被寫進夜曲⋯</p>
+
+          <p>《星夜終夢 Nocturne》將引領我們在這個夜晚，
+            一同傾聽屬於青春的最後旋律。
+            無論你在什麼位置、正走向哪裡，
+            都希望你能與我們一起，在夜的盡頭狂歡。</p>
+        </div>
+      </div>
+      
+      <div class="page">
+        <div class="content">
+          <h1>基本資訊</h1>
+          <div class="artist-section">
+            <img src="票價座位.jpg" alt="票價座位">
+            <div class="description">
+               <ol>
+                <li>📅 日期：2025年5月23日</li>
+                <li>📍 地點：台南二中明德堂</li>
+                <li>⏰ 時間：晚上 6:30</li>
+                <li>💰票價
+                  <ul>VVIP 650</ul>
+                  <ul>VIP 550</ul>
+                  <ul>搖滾區 450</ul>
+                  <ul>一般區 300</ul>
+                </li>
+               </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 藝人介紹 1 -->
+      <div class="page">
+        <div class="content">
+          <h1>藝人介紹</h1>
+          <div class="artist-section">
+            <img src="呂允.JPG" alt="藝人 A">
+            <div class="description">
+              <p>“回郵你的善良 記得你曾經接住悲傷 請不要再為我假裝 你最真的模樣 我會收下”</p>
+              <p style="color: rgb(0, 174, 255);">呂允 — 〈回郵(Re:)〉✉️</p>
+              <p>
+                你是不是也曾在深夜
+                被呂允的聲音悄悄擁抱過呢？
+                他的歌就像朋友遞來的耳機、輕聲的安慰˚ʚ♡ɞ˚
+                也像某段日記裡的BGM
+                讓人一次次回頭重聽 把情緒輕輕地交給他
+              </p>
+              <p>
+                在這個盛裝回憶的夜晚
+                就讓我們一起聽呂允唱出那些說不出口的話
+                把心裡的柔軟交給他收下吧 ღゝ◡╹)ノ♡
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 藝人介紹 2 -->
+      <div class="page">
+        <div class="content">
+          <h1>藝人介紹</h1>
+          <div class="artist-section reversed">
+            <img src="思遠.JPG" alt="藝人 B">
+            <div class="description">
+              <p>“那一天妳從此離開了我的生命 我感覺自己得了一種治不好的病 聽見心臟死去的那一個瞬間 彷彿我的生命再也沒有了時間”</p>
+              <p style="color: rgb(0, 174, 255);">☆♪ 思遠 —〈一個人〉✨</p>
+              <p>
+                來自台北的創作歌手「思遠」
+                以獨特的風格與真摯的歌詞迅速在音樂圈中嶄露頭角
+                融合饒舌、R&B、情歌等元素 創作出許多動人的作品
+                每首歌都承載著他對生活與愛情的深刻思考
+                並用音樂為聽眾帶來真實的情感體驗
+              </p>
+              <p>
+                思遠用音符和歌詞 向世界展現他對生活的真實感悟
+                讓我們一起聽見這些從心底流淌出的故事
+                並與他一同在音樂中尋找共鳴！
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 藝人介紹 3 -->
+      <div class="page">
+        <div class="content">
+          <h1>藝人介紹</h1>
+          <div class="artist-section">
+            <img src="FEniX.JPG" alt="藝人 C">
+            <div class="description">
+              <p>“哪裡寒冷往哪裡出發 誰有陰霾就往我懷裡炸 Falling down Falling down 熱情如暴雨落下 孤寂的傘悲傷都退吧”</p>
+              <p style="color: rgb(0, 174, 255);">☆♪ FEniX —〈Fire Fighter〉🧯</p>
+              <p>
+                來自《原子少年》的五人男子團體
+                以整齊俐落的舞步與強烈節奏征服舞台
+                一句句的歌詞都是真實的告白
+                也是他們站上舞台的初衷
+              </p>
+              <p>             
+                從練習室到聚光燈下
+                FEniX 一步步踏出屬於自己的節奏
+                在屬於青春的夜晚 讓我們一起被這場火光照亮吧💥
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 藝人介紹 4 -->
+      <div class="page">
+        <div class="content">
+          <h1>藝人介紹</h1>
+          <div class="artist-section reversed">
+            <img src="163braces.JPG" alt="藝人 D">
+            <div class="description">
+              <p>
+                  “生活中有時候很多的複雜
+                  使我們去做不同的選擇
+                  為什麼兩人都擁有同樣方向
+                  還是會走到分岔路口”
+              </p>
+              <p style="color: rgb(0, 174, 255);">☆♪ 163 braces —〈IHTS〉☁️</p>
+              <p>
+                「你一定一直一直很期待在畢業晚會上能聽到163 braces的歌聲吧？
+                沒關係，我也是」
+                🤧哈啾！⋯⋯⋯可愛、中二、無厘頭、有趣集結於一身的
+                163 braces登場☆
+              </p>
+              <p>
+                有線耳機加上一把木吉他 163隨口一唱
+                有線耳機加上一把木吉他 163隨口一唱
+                就不小心唱進了我們的心坎裡♡
+                每每聽到她的cover 都忍不住一再循環…
+                跟著163的清澈嗓音 一起療癒我們的心靈吧ᐡ• ·̫ •̥ᐡᰔᩚ
+              </p>  
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 藝人介紹 5 -->
+      <div class="page">
+        <div class="content">
+          <h1>藝人介紹 </h1>
+          <div class="artist-section">
+            <img src="李浩瑋 Howard Lee.JPG" alt="藝人 E">
+            <div class="description">
+              <p>
+                “天氣 在慢慢變晴
+                融化的雪地 也卸下了自己的秘密
+                曾經 說過的惡意
+                許下原諒的願景 愛上了這種奇蹟”
+              </p>
+              <p style="color: rgb(0, 174, 255);">☆♪李浩瑋 —〈天氣〉☀️</p>
+              <p>
+                今天的天氣正在慢慢變晴⋯因為李浩瑋他來啦！！！
+                每每聽浩瑋的現場 都會被他強烈的表達力感染
+                你也因為沒有聽到李浩瑋的專場而後悔莫及嗎？
+                機會來ㄌ⋯他將乘著fly machine來了🛸
+              </p>
+              <p>
+                信手拈來好旋律的超能力、吃CD當三餐的你好味
+                將為這青春的夜晚 增添更豐富的色彩₍ᐡඉ ̫ ඉᐡ₎💭
+                一起陷入李浩瑋的音樂魅力裡吧！☆↯↯
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page">
+        <div class="content">
+          <h1>市集介紹</h1>
+          <p>🎪</p>
+        </div>
+      </div>
+      <div class="page">
+        <div class="content">
+          <h1>結尾</h1>
+          <p></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="floating-menu">
+    <div class="menu-item" onclick="goToPage(0)">1</div>
+    <div class="menu-item" onclick="goToPage(1)">2</div>
+    <div class="menu-item" onclick="goToPage(2)">3</div>
+    <div class="menu-item" onclick="goToPage(3)">4</div>
+    <div class="menu-item" onclick="goToPage(4)">5</div>
+    <div class="menu-item" onclick="goToPage(5)">6</div>
+    <div class="menu-item" onclick="goToPage(6)">7</div>
+    <div class="menu-item" onclick="goToPage(7)">8</div>
+    <div class="menu-item" onclick="goToPage(8)">9</div>
+  </div>
+
+  <script>
+    const pages = document.querySelectorAll(".page");
+    const menuItems = document.querySelectorAll(".menu-item");
+    let currentPage = 0;
+
+    function updateView() {
+      pages.forEach((page, index) => {
+        if (index < currentPage) {
+          page.classList.add("flipped");
+          page.style.zIndex = index;
+        } else {
+          page.classList.remove("flipped");
+          page.style.zIndex = pages.length - index;
+        }
+      });
+      updateMenu();
+    }
+
+    function goToPage(pageIndex) {
+      currentPage = pageIndex;
+      updateView();
+    }
+
+    function updateMenu() {
+      menuItems.forEach((item, index) => {
+        item.classList.toggle("active", index === currentPage);
+      });
+    }
+
+    updateView();
+  </script>
+</body>
+</html>
