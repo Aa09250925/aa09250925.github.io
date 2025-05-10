@@ -282,39 +282,77 @@
         }
     }
 
-    @media (max-width: 480px) {
-        /* 再次縮小文字 */
+       @media (max-width: 480px) {
         header h1 {
-            font-size: 1.8rem;
+            font-size: 2.2rem;
+            margin: 10px 0;
         }
-
+    
+        header p {
+            font-size: 1rem;
+            margin: 0;
+        }
+    
         .menu-icon {
-            font-size: 22px;
+            font-size: 20px;
+            padding: 10px;
+            background-color: rgba(0,0,0,0.4);
+            border-radius: 6px;
         }
-
-        .signup-button {
-            font-size: 0.9rem;
-            padding: 6px 12px;
+    
+        .dropdown {
+            width: 100%;
+            left: 0;
+            right: 0;
+            top: 45px;
+            text-align: center;
+            border-radius: 0;
         }
-
-        .card h2 {
-            font-size: 1.2rem;
+    
+        .dropdown a {
+            padding: 12px;
+            font-size: 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
-
-        .card p {
-            font-size: 0.9rem;
+    
+        .card {
+            width: 95%;
+            margin: 15px auto;
+            padding: 15px;
         }
-
-        /* 確保卡片圖片不會變形 */
+    
+        .card .img-container,
+        .party-card .img-container {
+            height: 200px;
+        }
+    
         .card .img-container img,
         .party-card .img-container img {
-            object-fit: contain;
+            object-fit: cover;
         }
-
+    
+        .card h2, .party-card .party-content h2 {
+            font-size: 1.4rem;
+        }
+    
+        .card p, .party-card .party-content p {
+            font-size: 1rem;
+        }
+    
+        .signup-button {
+            font-size: 0.95rem;
+            padding: 8px 12px;
+            margin: 5px 2px;
+            display: inline-block;
+        }
+    
         footer {
-            font-size: 0.8rem;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            padding: 15px;
         }
     }
+
     </style>
 </head>
 <body>
