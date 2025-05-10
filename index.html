@@ -212,149 +212,143 @@
         }
 
         @media (max-width: 768px) {
-        /* 縮小標題文字 */
-        header h1 {
-            font-size: 2rem;
-        }
+            header h1 {
+                font-size: 2rem;
+            }
 
-        header p {
-            font-size: 1rem;
-        }
+            header p {
+                font-size: 1rem;
+            }
 
-        /* 卡片樣式調整 */
-        .card {
-            width: 100%;
-            margin: 10px auto;
-        }
+            .card {
+                width: 100%;
+                margin: 10px auto;
+            }
 
-        .card h2 {
-            font-size: 1.5rem;
-        }
+            .card h2 {
+                font-size: 1.5rem;
+            }
 
-        .card p {
-            font-size: 1rem;
-        }
+            .card p {
+                font-size: 1rem;
+            }
 
-        .card button {
-            font-size: 1rem;
-        }
+            .card button {
+                font-size: 1rem;
+            }
 
-        /* 菜單按鈕調整 */
-        .menu-icon {
-            font-size: 25px;
-            padding: 5px 10px;
-        }
+            .menu-icon {
+                font-size: 25px;
+                padding: 5px 10px;
+            }
 
-        .dropdown {
-            width: 100%;
-            right: 0;
-            left: 0;
-            text-align: center;
-        }
+            .dropdown {
+                width: 100%;
+                right: 0;
+                left: 0;
+                text-align: center;
+            }
 
-        .dropdown a {
-            font-size: 1rem;
-            padding: 10px;
-        }
+            .dropdown a {
+                font-size: 1rem;
+                padding: 10px;
+            }
 
-        /* 活動圖片調整 */
-        .card .img-container,
-        .party-card .img-container {
-            height: auto;
-        }
+            .card .img-container img,
+            .party-card .img-container img {
+                object-fit: contain;
+            }
 
-        .party-card .party-content h2 {
-            font-size: 2rem;
-        }
+            .party-card .party-content h2 {
+                font-size: 2rem;
+            }
 
-        .party-card .party-content p {
-            font-size: 1rem;
-        }
+            .party-card .party-content p {
+                font-size: 1rem;
+            }
 
-        .signup-button {
-            font-size: 1rem;
-            padding: 8px 16px;
-        }
+            .signup-button {
+                font-size: 1rem;
+                padding: 8px 16px;
+            }
 
-        footer {
-            font-size: 0.9rem;
-            text-align: center;
+            footer {
+                font-size: 0.9rem;
+                text-align: center;
+            }
         }
-    }
 
        @media (max-width: 480px) {
-        header h1 {
-            font-size: 2.2rem;
-            margin: 10px 0;
+            header h1 {
+                font-size: 2.2rem;
+                margin: 10px 0;
+            }
+        
+            header p {
+                font-size: 1rem;
+                margin: 0;
+            }
+        
+            .menu-icon {
+                font-size: 20px;
+                padding: 10px;
+                background-color: rgba(0,0,0,0.4);
+                border-radius: 6px;
+            }
+        
+            .dropdown {
+                width: 100%;
+                left: 0;
+                right: 0;
+                top: 45px;
+                text-align: center;
+                border-radius: 0;
+            }
+        
+            .dropdown a {
+                padding: 12px;
+                font-size: 1rem;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+        
+            .card {
+                width: 95%;
+                margin: 15px auto;
+                padding: 15px;
+            }
+        
+            .card .img-container,
+            .party-card .img-container {
+                width: 100%;
+                height: auto;
+            }
+        
+            .card .img-container img,
+            .party-card .img-container img {
+                object-fit: contain;
+            }
+        
+            .card h2, .party-card .party-content h2 {
+                font-size: 1.4rem;
+            }
+        
+            .card p, .party-card .party-content p {
+                font-size: 1rem;
+            }
+        
+            .signup-button {
+                font-size: 0.95rem;
+                padding: 8px 12px;
+                margin: 5px 2px;
+                display: inline-block;
+            }
+        
+            footer {
+                font-size: 0.85rem;
+                line-height: 1.6;
+                padding: 15px;
+            }
         }
-    
-        header p {
-            font-size: 1rem;
-            margin: 0;
-        }
-    
-        .menu-icon {
-            font-size: 20px;
-            padding: 10px;
-            background-color: rgba(0,0,0,0.4);
-            border-radius: 6px;
-        }
-    
-        .dropdown {
-            width: 100%;
-            left: 0;
-            right: 0;
-            top: 45px;
-            text-align: center;
-            border-radius: 0;
-        }
-    
-        .dropdown a {
-            padding: 12px;
-            font-size: 1rem;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-    
-        .card {
-            width: 95%;
-            margin: 15px auto;
-            padding: 15px;
-        }
-    
-        .card .img-container,
-        .party-card .img-container {
-            width: 100%;
-            height: auto;
-            object-fit: contain;
-        }
-    
-        .card .img-container img,
-        .party-card .img-container img {
-            object-fit: cover;
-        }
-    
-        .card h2, .party-card .party-content h2 {
-            font-size: 1.4rem;
-        }
-    
-        .card p, .party-card .party-content p {
-            font-size: 1rem;
-        }
-    
-        .signup-button {
-            font-size: 0.95rem;
-            padding: 8px 12px;
-            margin: 5px 2px;
-            display: inline-block;
-        }
-    
-        footer {
-            font-size: 0.85rem;
-            line-height: 1.6;
-            padding: 15px;
-        }
-    }
-
     </style>
 </head>
 <body>
