@@ -55,7 +55,7 @@
       width: 100%;
       height: 100%;
       background: repeating-linear-gradient(to bottom, #fff, #fff 24px, #fefae0 25px);
-      padding: 20px;
+      padding: 10px;
       box-sizing: border-box;
       display: flex;
       flex-direction: column;
@@ -141,11 +141,6 @@
       text-align: left;
     }
 
-    .content ol {
-      margin: 5px 0;
-      text-align: left;
-    }
-
 
     .artist-section {
       display: flex;
@@ -214,6 +209,7 @@
        .page {
             padding: 20px; /* 確保每個頁面內邊距一致 */
             justify-content: flex-start; /* 保證內容從頂部開始排列 */
+            margin-top: -15px;
         }
 
         .content h1 {
@@ -249,6 +245,27 @@
             align-items: center !important;
             text-align: center !important;
         }
+
+        .artist-section .description table {
+            width: 100%;
+        }
+
+        .artist-section .description table td:first-child {
+            text-align: left;
+            vertical-align: top;
+            white-space: nowrap;
+            padding: 0;
+            border: none;
+        }
+        .artist-section .description table td:last-child {
+            text-align: right;
+            padding-left: 10px;
+            border: none;
+        }
+        .artist-section .description table span {
+            display: block;
+            text-align: right;
+        }
     }
 
     @media (max-width: 480px) {
@@ -271,7 +288,8 @@
       <div class="page">
         <div class="content" style="justify-content: center;">
           <img src="畢業晚會.jpg" alt="畢業晚會">
-          <h1>台南二中畢業晚會《星夜終夢Nocturne》</h1>
+          <h1>台南二中畢業晚會</h1>
+          <h1>《星夜終夢Nocturne》</h1>
           <p>在日落之後，我們走進星夜，
             像墜入一場無聲的夢境。
             流星滑過、記憶閃爍，
@@ -290,17 +308,20 @@
           <div class="artist-section reversed">
             <img src="票價座位.jpg" alt="票價座位">
             <div class="description">
-               <ol>
-                <li>📅 日期：2025年5月23日</li>
-                <li>📍 地點：台南二中明德堂</li>
-                <li>⏰ 時間：晚上 6:30</li>
-                <li>💰票價
-                  <ul>VVIP 550</ul>
-                  <ul>VIP 450</ul>
-                  <ul>搖滾區 350</ul>
-                  <ul>一般區 250</ul>
-                </li>
-               </ol>
+                <p>📅 日期：2025年5月23日</p>
+                <p>📍 地點：台南二中明德堂</p>
+                <p>⏰ 時間：晚上 6:30</p>
+                  <table style="width:100%; border:none; margin:0; padding:0; text-align: left;">
+                    <tr>
+                      <td style="border:none; padding:0; vertical-align:top; white-space:nowrap;">💰 票價</td>
+                      <td style="border:none; padding:0 0 0 10px; text-align: right;">
+                        <span style="display:block;">VVIP 550</span>
+                        <span style="display:block;">VIP 450</span>
+                        <span style="display:block;">搖滾區 350</span>
+                        <span style="display:block;">一般區 250</span>
+                      </td>
+                    </tr>
+                  </table>
             </div>
           </div>
         </div>
