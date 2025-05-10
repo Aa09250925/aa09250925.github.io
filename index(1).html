@@ -141,6 +141,12 @@
       text-align: left;
     }
 
+    .content ol {
+      margin: 5px 0;
+      text-align: left;
+    }
+
+
     .artist-section {
       display: flex;
       justify-content: center; /* 主要讓整組內容置中 */
@@ -158,11 +164,11 @@
     }   
 
     .artist-section .description {
-    max-width: 500px;
-    flex: 1; /* 讓文字區塊可以彈性調整寬度 */
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* 垂直置中文字內容 */
+      max-width: 500px;
+      flex: 1; /* 讓文字區塊可以彈性調整寬度 */
+      display: flex;
+      flex-direction: column;
+      justify-content: center; /* 垂直置中文字內容 */
     }
 
     .artist-section.reversed {
@@ -171,46 +177,65 @@
     
 
     @media (max-width: 768px) {
-      body {
-        align-items: flex-start;
-      }
+        .notebook-container {
+            padding-top: 15px; /* 增加向下間距，避免被地址欄遮擋 */
+            height: 95%; /* 確保內容不超出可視範圍 */
+        }
 
-      .page {
-        font-size: 1rem;
-        padding: 15px;
-      }
+        .content img {
+            max-width: 90%;
+            max-height: 300px; /* 限制圖片高度 */
+            object-fit: cover; /* 防止圖片變形 */
+        }
 
-      .notebook-container {
-      padding-top: 50px; /* 增加向下的間距，避免被手機瀏覽器的地址欄擋住 */
-      }
+        .floating-menu {
+            gap: 10px; /* 增加按鈕間距 */
+        }
 
-      .artist-section {
-        flex-direction: column;
-        align-items: center;
-      }
+        .menu-item {
+            width: 40px;
+            height: 40px;
+            font-size: 0.8rem; /* 提高文字大小 */
+        }
 
-      .artist-section.reversed {
-        flex-direction: column;
-        align-items: center;
-      }
+       .page {
+            padding: 20px; /* 確保每個頁面內邊距一致 */
+            justify-content: flex-start; /* 保證內容從頂部開始排列 */
+        }
 
-      .artist-section img {
-        width: 90%;
-      }
+        .content h1 {
+            font-size: 1.8rem; /* 統一標題字體大小 */
+            line-height: 1.5; /* 增加標題行高，避免擁擠 */
+            margin: 20px 0; /* 統一標題上下外邊距 */
+            text-align: center; /* 標題居中對齊 */
+        }
 
-      .notebook-container {
-        height: 95%;
-      }
-
-      .floating-menu {
-        gap: 8px;
-      }
-
-      .menu-item {
-        width: 40px;
-        height: 40px;
-        font-size: 0.8rem;
-      }
+        .artist-section {
+            width: 100% !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            text-align: center !important;
+            gap: 15px;
+        }
+        .artist-section img {
+            width: 90% !important;
+            max-width: 350px;
+            max-height: 300px;
+            object-fit: contain;
+            margin-bottom: 15px;
+        }
+        .artist-section .description {
+            max-width: 100%;
+            font-size: 1rem;
+            line-height: 1.6;
+            text-align: center;
+        }
+        .artist-section.reversed {
+            flex-direction: column !important;
+            align-items: center !important;
+            text-align: center !important;
+        }
     }
 
     @media (max-width: 480px) {
@@ -231,7 +256,7 @@
     <div class="binder"></div>
     <div class="book">
       <div class="page">
-        <div class="content">
+        <div class="content" style="justify-content: center;">
           <img src="畢業晚會.jpg" alt="畢業晚會">
           <h1>台南二中畢業晚會《星夜終夢Nocturne》</h1>
           <p>在日落之後，我們走進星夜，
@@ -246,10 +271,10 @@
         </div>
       </div>
       
-      <div class="page">
+    <div class="page">
         <div class="content">
           <h1>基本資訊</h1>
-          <div class="artist-section">
+          <div class="artist-section reversed">
             <img src="票價座位.jpg" alt="票價座位">
             <div class="description">
                <ol>
@@ -257,10 +282,10 @@
                 <li>📍 地點：台南二中明德堂</li>
                 <li>⏰ 時間：晚上 6:30</li>
                 <li>💰票價
-                  <ul>VVIP 650</ul>
-                  <ul>VIP 550</ul>
-                  <ul>搖滾區 450</ul>
-                  <ul>一般區 300</ul>
+                  <ul>VVIP 550</ul>
+                  <ul>VIP 450</ul>
+                  <ul>搖滾區 350</ul>
+                  <ul>一般區 250</ul>
                 </li>
                </ol>
             </div>
