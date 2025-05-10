@@ -178,7 +178,7 @@
 
     @media (max-width: 768px) {
         .notebook-container {
-            padding-top: 15px; /* 增加向下間距，避免被地址欄遮擋 */
+            padding-top: 0px; /* 增加向下間距，避免被地址欄遮擋 */
             height: 95%; /* 確保內容不超出可視範圍 */
         }
 
@@ -189,7 +189,20 @@
         }
 
         .floating-menu {
-            gap: 10px; /* 增加按鈕間距 */
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          top: auto;
+          transform: none;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          gap: 10px;
+          background: rgba(255,255,255,0.95);
+          padding: 8px 0 6px 0;
+          z-index: 100;
+          box-shadow: 0 -2px 12px rgba(0,0,0,0.08);
         }
 
         .menu-item {
